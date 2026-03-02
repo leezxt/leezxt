@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的個人首頁</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* 逼真草地背景設定 */
+        .hero-section {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://images.unsplash.com/photo-1533460004989-cee1901c0482?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* 捲動時的視差效果 */
+            overflow: hidden;
+        }
+
+        /* 背景遮罩層：確保文字可讀性 */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(6, 95, 70, 0.4), rgba(6, 95, 70, 0.7));
+            z-index: 1;
+        }
+
+        /* 3D 容器設定 */
+        .hero-perspective {
+            perspective: 1200px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* 3D 提取人物照片 */
+        .profile-character {
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(52, 211, 153, 0.3);
+            background-color: white; 
+            transform: translateZ(60px); 
+            pointer-events: none;
+        }
+
+        /* 背景裝飾光圈 */
+        .blob-decorator {
+            position: absolute;
+            z-index: -1;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+            filter: blur(25px);
+            border-radius: 50%;
+            width: 380px;
+            height: 380px;
+            transform: translateZ(-30px);
+        }
+
+        /* 飄浮微粒子 */
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: rise 8s infinite linear;
+            z-index: 2;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 導航欄 -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm border-b border-emerald-100">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold text-emerald-700 tracking-tight">MyPortfolio</div>
+            <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
+                <a href="#home" class="hover:text-emerald-600 transition">首頁</a>
+                <a href="#about" class="hover:text-emerald-600 transition">關於我</a>
+                <a href="#skills" class="hover:text-emerald-600 transition">技能</a>
+                <a href="#portfolio" class="hover:text-emerald-600 transition">作品</a>
+                <a href="#contact" class="hover:text-emerald-600 transition">聯絡我</a>
+            </div>
+            <div class="md:hidden text-emerald-600">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首頁橫幅 (Hero Section) -->
+    <header id="home" class="hero-section pt-32 pb-24 px-4 text-white text-center">
+        <!-- 景深遮罩層 -->
+        <div class="hero-overlay"></div>
+        
+        <!-- JS 動態生成粒子 -->
+        <div id="particles-container"></div>
+        
+        <div class="max-w-4xl mx-auto hero-perspective">
+            <div class="hero-image-wrapper mb-12" id="tilt-card">
+                <div class="blob-decorator"></div>
+                <!-- 3D 人物照片 -->
+                <img src="https://files.oaiusercontent.com/file-Kstk9M9qKbe1fO688mD0C070?se=2024-10-24T08%3A44%3A40Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20private%2C%20immutable&rscd=attachment%3B%20filename%3D7395024b-3cc3-4a7b-8321-f09c855a7309.webp&sig=%2BvP7M087/0H0Gv0hE0jA7/Wk5D8q4/Y/2Y/8%3D" alt="李任鈞 3D 角色" class="profile-character">
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight drop-shadow-xl relative inline-block">
+                我是 李任鈞
+            </h1>
+            
+            <p class="text-xl md:text-2xl opacity-95 mb-12 font-light max-w-2xl mx-auto drop-shadow-md">
+                專注於 <span class="font-bold border-b-2 border-emerald-400">Java 開發</span> 與 <span class="font-bold border-b-2 border-emerald-400">網頁設計</span> 的創意工作者
+            </p>
+            
+            <div class="flex justify-center gap-4 relative">
+                <a href="#contact" class="bg-emerald-600 text-white px-10 py-4 rounded-full font-bold hover:bg-emerald-500 transition shadow-2xl transform hover:-translate-y-1">與我聯絡</a>
+                <a href="#portfolio" class="bg-white/10 backdrop-blur-md text-white border border-white/40 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition shadow-xl transform hover:-translate-y-1">查看作品</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 關於我 (About Section) -->
+    <section id="about" class="py-24 px-4 bg-white relative z-20">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="w-12 h-1 bg-emerald-500 mx-auto mb-8 rounded-full"></div>
+            <h2 class="text-3xl font-bold mb-8 flex justify-center items-center text-gray-800">
+                <i class="fas fa-leaf mr-3 text-emerald-500"></i>關於我
+            </h2>
+            <p class="text-lg leading-relaxed text-gray-600 font-medium">
+                你好！我是李任鈞。我熱衷於透過程式碼解決現實生活中的問題。目前我致力於提升 Java 後端架構實力與前端沉浸式互動設計，希望能將複雜的邏輯轉化為優美的使用者體驗。
+            </p>
+        </div>
+    </section>
+
+    <!-- 技能專長 (Skills Section) -->
+    <section id="skills" class="py-24 bg-emerald-50/50 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12 flex justify-center items-center text-gray-800">
+                <i class="fas fa-bolt mr-3 text-emerald-500"></i>專業技能
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-emerald-100 card-hover">
+                    <div class="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-700">Java 後端</h3>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-emerald-100 card-hover">
+                    <div class="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-700">前端開發</h3>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-emerald-100 card-hover">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-700">持續學習</h3>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-emerald-100 card-hover">
+                    <div class="w-16 h-16 bg-yellow-50 text-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-700">團隊協作</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡與頁尾 -->
+    <footer class="py-16 text-center text-gray-400 border-t border-gray-100 bg-white">
+        <div class="mb-6 flex justify-center space-x-6 text-xl">
+            <a href="#" class="hover:text-emerald-600 transition"><i class="fab fa-github"></i></a>
+            <a href="#" class="hover:text-emerald-600 transition"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="hover:text-emerald-600 transition"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="text-xs font-light uppercase tracking-widest">&copy; 2026 李任鈞. 全心打造.</p>
+    </footer>
+
+    <script>
+        // 1. 3D 傾斜效果
+        const card = document.getElementById('tilt-card');
+        const hero = document.getElementById('home');
+
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const xAxis = (rect.width / 2 - x) / 20;
+            const yAxis = (rect.height / 2 - y) / 20;
+            
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // 鼠標移開時平滑重置
+        hero.addEventListener('mouseleave', () => {
+            card.style.transition = "all 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+
+        hero.addEventListener('mouseenter', () => {
+            card.style.transition = "none";
+        });
+
+        // 2. 生成背景粒子
+        const particlesContainer = document.getElementById('particles-container');
+        const particleCount = 25;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            const size = Math.random() * 4 + 2 + 'px';
+            particle.style.width = size;
+            particle.style.height = size;
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.top = Math.random() * 100 + 'vh';
+            particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            particle.style.animationDelay = (Math.random() * 5) + 's';
+            particle.style.opacity = Math.random() * 0.5 + 0.2;
+            particlesContainer.appendChild(particle);
+        }
+    </script>
+</body>
+</html>
