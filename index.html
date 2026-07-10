@@ -1,247 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的個人首頁</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
-        
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        /* 更換為綠色草地風格的漸層背景 */
-        .gradient-bg {
-            background: linear-gradient(135deg, #34d399 0%, #059669 100%);
-        }
-
-        /* 3D 人物浮動動畫 */
-        @keyframes floating {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(1deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        .hero-image-wrapper {
-            position: relative;
-            width: 280px;
-            height: 280px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: floating 5s ease-in-out infinite;
-        }
-
-        /* 模擬去背與提取效果 */
-        .profile-character {
-            width: 260px;
-            height: 260px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 8px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(0,0,0,0.05);
-            background-color: white; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .profile-character:hover {
-            transform: scale(1.1);
-            border-color: white;
-            box-shadow: 0 40px 70px rgba(0, 0, 0, 0.3);
-        }
-
-        /* 裝飾性裝飾物 - 改為淺綠色調 */
-        .blob-decorator {
-            position: absolute;
-            z-index: -1;
-            background: rgba(255, 255, 255, 0.2);
-            filter: blur(40px);
-            border-radius: 50%;
-            width: 300px;
-            height: 300px;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-8px);
-            transition: all 0.3s ease;
-        }
-
-        .portfolio-img {
-            transition: transform 0.5s ease;
-        }
-        
-        .card-hover:hover .portfolio-img {
-            transform: scale(1.1);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="個人履歷與作品集">
+  <title>李任鈞 | Backend Resume</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
+  <a class="skip-link" href="#main-content">跳到主要內容</a>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="site-nav-inner">
+      <a class="brand" href="#top" aria-label="回到頁首">LRJ</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">選單</button>
+      <div class="nav-links" id="site-menu">
+        <a href="#about">關於我</a>
+        <a href="#skills">技能</a>
+        <a href="#projects">專案</a>
+        <a href="#background">背景</a>
+        <button class="theme-toggle" type="button" aria-pressed="false">深色模式</button>
+      </div>
+    </div>
+  </nav>
 
-    <!-- 導航欄 -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm border-b border-emerald-100">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="text-xl font-bold text-emerald-600 tracking-tight">MyPortfolio</div>
-            <div class="hidden md:flex space-x-6 text-sm font-medium">
-                <a href="#home" class="hover:text-emerald-600 transition">首頁</a>
-                <a href="#about" class="hover:text-emerald-600 transition">關於我</a>
-                <a href="#skills" class="hover:text-emerald-600 transition">技能</a>
-                <a href="#portfolio" class="hover:text-emerald-600 transition">作品</a>
-                <a href="#contact" class="hover:text-emerald-600 transition">聯絡我</a>
-            </div>
-            <div class="md:hidden text-emerald-600">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 首頁橫幅 (Hero Section) -->
-    <header id="home" class="gradient-bg pt-40 pb-32 px-4 text-white text-center overflow-hidden">
-        <div class="max-w-4xl mx-auto">
-            <div class="hero-image-wrapper mb-10">
-                <div class="blob-decorator"></div>
-                <!-- 提取的人物照片 -->
-                <img src="https://files.oaiusercontent.com/file-Kstk9M9qKbe1fO688mD0C070?se=2024-10-24T08%3A44%3A40Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20private%2C%20immutable&rscd=attachment%3B%20filename%3D7395024b-3cc3-4a7b-8321-f09c855a7309.webp&sig=%2BvP7M087/0H0Gv0hE0jA7/Wk5D8q4/Y/2Y/8%3D" alt="李任鈞 3D 角色" class="profile-character">
-            </div>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight drop-shadow-lg">我是 李任鈞</h1>
-            <p class="text-xl md:text-2xl opacity-90 mb-12 font-light max-w-2xl mx-auto">
-                專注於 <span class="font-bold border-b-2 border-white/40">Java 開發</span> 與 <span class="font-bold border-b-2 border-white/40">網頁設計</span> 的創意工作者
-            </p>
-            <div class="flex justify-center gap-4">
-                <a href="#contact" class="bg-white text-emerald-700 px-10 py-4 rounded-full font-bold hover:bg-emerald-50 transition shadow-2xl transform hover:-translate-y-1">與我聯絡</a>
-                <a href="#portfolio" class="bg-emerald-800/20 backdrop-blur-sm text-white border border-white/30 px-10 py-4 rounded-full font-bold hover:bg-white/10 transition shadow-xl transform hover:-translate-y-1">查看作品</a>
-            </div>
-        </div>
+  <main class="page" id="main-content">
+    <header class="hero" id="top">
+      <div>
+        <p class="eyebrow">Junior Backend Developer</p>
+        <h1>李任鈞</h1>
+        <p class="lead">聚焦 Java 後端開發與實作型學習，已系統化接觸 Java、MySQL、Spring Data、Redis、Docker、Git、Linux、AWS 與 AI 應用基礎主題，並能完成基礎前端頁面與前後端串接。</p>
+      </div>
+      <address class="contact" aria-label="聯絡資訊">
+        <a href="mailto:leezxt@gmail.com">Email / 電子郵件：leezxt@gmail.com</a>
+        <a href="https://github.com/leezxt/StockPredictor">GitHub / StockPredictor</a>
+        <a href="https://www.linkedin.com/in/%E4%BB%BB%E9%88%9E-%E6%9D%8E-344259420/">LinkedIn / 個人檔案</a>
+        <span>Taiwan</span>
+      </address>
     </header>
 
-    <!-- 關於我 (About Section) -->
-    <section id="about" class="py-24 px-4 bg-white">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8 flex justify-center items-center">
-                <i class="fas fa-seedling mr-3 text-emerald-500"></i>關於我
-            </h2>
-            <p class="text-lg leading-relaxed text-gray-600 italic font-medium mb-6">
-                "程式碼是我的畫筆，邏輯是我的畫布。"
-            </p>
-            <p class="text-lg leading-relaxed text-gray-600">
-                你好！我是李任鈞。目前我致力於成為一名全端工程師。我熱衷於透過程式碼解決現實生活中的問題，並持續探索 Java 與前端框架的無限可能。
-            </p>
-        </div>
+    <section class="section" id="about">
+      <h2>關於我 / About</h2>
+      <div class="summary-block about-copy">
+        <p>以轉職後端工程師為目標，持續累積 Java、Spring Boot、資料庫與雲端實作能力，偏好把需求整理成可維護、可交付的系統。</p>
+        <p>目前重心放在後端開發、API 串接、資料存取與 AI 工具應用，能配合基礎前端頁面與專案整合流程。</p>
+      </div>
     </section>
 
-    <!-- 技能/專長 (Skills Section) -->
-    <section id="skills" class="py-24 bg-emerald-50 px-4">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center flex justify-center items-center">
-                <i class="fas fa-tools mr-3 text-emerald-500"></i>我的技能
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover text-center border border-emerald-100">
-                    <div class="w-16 h-16 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                        <i class="fab fa-java"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Java 開發</h3>
-                    <p class="text-gray-500 text-sm">熟悉 Java 核心與 OOP 概念，處理後端邏輯與數據。</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover text-center border border-emerald-100">
-                    <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">網頁開發</h3>
-                    <p class="text-gray-500 text-sm">掌握現代 HTML/CSS 技巧，能打造直覺的介面體驗。</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover text-center border border-emerald-100">
-                    <div class="w-16 h-16 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">學習探索</h3>
-                    <p class="text-gray-500 text-sm">熱衷新技術研究，能快速上手並整合多種開發工具。</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm card-hover text-center border border-emerald-100">
-                    <div class="w-16 h-16 bg-yellow-50 text-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">團隊協作</h3>
-                    <p class="text-gray-500 text-sm">具備跨部門溝通能力，能有效縮短開發週期並達成共識。</p>
-                </div>
-            </div>
-        </div>
+    <section class="section" id="skills">
+      <div class="section-heading">
+        <h2>技能欄位 / Skills</h2>
+        <button class="skill-toggle" type="button" aria-expanded="false">展開全部</button>
+      </div>
+      <div class="skill-groups" aria-label="技能分類">
+        <details class="skill-group">
+          <summary>Backend Development / 後端開發</summary>
+          <p class="skill-note">Java 與 Spring 生態系基礎，能處理 API 與服務分層。</p>
+          <div class="skill-items">
+            <span>Java / OOP</span>
+            <span>Spring Boot</span>
+            <span>Spring Data</span>
+            <span>RESTful API</span>
+            <span>Lombok</span>
+            <span>JdbcTemplate</span>
+            <span>Redis</span>
+          </div>
+        </details>
+        <details class="skill-group">
+          <summary>Database &amp; Persistence / 資料庫與資料存取</summary>
+          <p class="skill-note">聚焦 SQL、JPA 與資料表設計，對資料存取流程有完整基本概念。</p>
+          <div class="skill-items">
+            <span>MySQL</span>
+            <span>SQL</span>
+            <span>JPA</span>
+            <span>JDBC</span>
+            <span>Schema Design</span>
+          </div>
+        </details>
+        <details class="skill-group">
+          <summary>API &amp; Tools / API 與開發工具</summary>
+          <p class="skill-note">以專案建置、測試與版本控制為主的工作流程工具。</p>
+          <div class="skill-items">
+            <span>Maven</span>
+            <span>Postman</span>
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>HTTP / HTTPS Protocols</span>
+            <span>SOAP vs RESTful API</span>
+          </div>
+        </details>
+        <details class="skill-group">
+          <summary>Cloud &amp; Platform / 雲端與平台</summary>
+          <p class="skill-note">可支援容器化、Linux 環境與 AWS 基礎部署觀念。</p>
+          <div class="skill-items">
+            <span>AWS EC2</span>
+            <span>AWS S3</span>
+            <span>AWS RDS</span>
+            <span>CloudWatch</span>
+            <span>Elastic Beanstalk</span>
+            <span>Linux / Ubuntu</span>
+            <span>Docker</span>
+            <span>VirtualBox</span>
+          </div>
+        </details>
+        <details class="skill-group">
+          <summary>AI Applications / AI 應用</summary>
+          <p class="skill-note">以開發效率與 AI 應用整合為主，熟悉入門工具與基礎模式。</p>
+          <div class="skill-items">
+            <span>GitHub Copilot</span>
+            <span>Ollama</span>
+            <span>Spring AI</span>
+            <span>Embeddings</span>
+            <span>Vector DB</span>
+            <span>RAG</span>
+            <span>AWS Bedrock</span>
+            <span>AWS Comprehend</span>
+            <span>AWS Polly</span>
+          </div>
+        </details>
+      </div>
     </section>
 
-    <!-- 作品集 (Portfolio Section) -->
-    <section id="portfolio" class="py-24 px-4 bg-white">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center flex justify-center items-center">
-                <i class="fas fa-briefcase mr-3 text-emerald-500"></i>我的作品
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
-                    <div class="overflow-hidden h-48 bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="作品一預覽圖" class="portfolio-img w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Web Design</span>
-                        <h3 class="text-xl font-bold mt-2 mb-3">個人形象網站</h3>
-                        <p class="text-gray-500 text-sm mb-4">使用 HTML、CSS 與 Tailwind CSS 打造的響應式網站。</p>
-                        <a href="#" class="text-emerald-600 font-bold text-sm hover:underline">查看詳情 →</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
-                    <div class="overflow-hidden h-48 bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="作品二預覽圖" class="portfolio-img w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Development</span>
-                        <h3 class="text-xl font-bold mt-2 mb-3">待辦事項 App</h3>
-                        <p class="text-gray-500 text-sm mb-4">實用的任務管理工具，優化使用者日常工作流。</p>
-                        <a href="#" class="text-emerald-600 font-bold text-sm hover:underline">查看詳情 →</a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md card-hover border border-gray-100">
-                    <div class="overflow-hidden h-48 bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80" alt="作品三預覽圖" class="portfolio-img w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">UI/UX</span>
-                        <h3 class="text-xl font-bold mt-2 mb-3">電商介面設計</h3>
-                        <p class="text-gray-500 text-sm mb-4">針對購物流程優化的 UX 設計，提升轉換率與滿意度。</p>
-                        <a href="#" class="text-emerald-600 font-bold text-sm hover:underline">查看詳情 →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="section" id="projects">
+      <h2>專案作品 / Projects</h2>
+      <div class="projects">
+        <article class="card project-card">
+          <p class="project-label">Featured Project</p>
+          <h3>StockPredictor / 台股分析系統</h3>
+          <p>台股分析工具，提供股價走勢、K 線、KD 動能、法人籌碼、雷達評分與市場掃描功能。</p>
+          <p>技術：Java 17、Spring Boot 3、RESTful API、HTML/CSS/JavaScript、H2、Maven、Docker。</p>
+          <a href="https://github.com/leezxt/StockPredictor">GitHub Repository</a>
+        </article>
+        <article class="card project-card">
+          <p class="project-label">MVP Project</p>
+          <h3>Stock AI System / AI 股市分析系統</h3>
+          <p>整合股市資料、技術分析、AI 分析與模型比較的全端 MVP，並支援帳號設定、自選清單、回測及 RAG 文件檢索。</p>
+          <p>技術：Java 21、Spring Boot 4.1、RESTful API、PostgreSQL、pgvector、RAG、HTML/CSS/JavaScript、Docker。</p>
+          <a href="https://github.com/leezxt/stock-ai-system">GitHub Repository</a>
+        </article>
+      </div>
     </section>
 
-    <!-- 聯絡方式 (Contact Section) -->
-    <section id="contact" class="py-24 bg-emerald-50 px-4">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8 flex justify-center items-center">
-                <i class="fas fa-envelope mr-3 text-emerald-500"></i>聯絡我
-            </h2>
-            <p class="mb-10 text-gray-600 text-lg">期待與您展開有趣的合作對話！</p>
-            
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="mailto:your-email@example.com" class="flex items-center px-8 py-4 bg-white border border-emerald-200 rounded-2xl hover:border-emerald-500 hover:text-emerald-600 transition shadow-sm font-medium">
-                    <i class="fas fa-at mr-2"></i> 電子郵件
-                </a>
-                <a href="#" class="flex items-center px-8 py-4 bg-white border border-emerald-200 rounded-2xl hover:border-emerald-500 hover:text-emerald-600 transition shadow-sm font-medium">
-                    <i class="fab fa-instagram mr-2"></i> Instagram
-                </a>
-                <a href="#" class="flex items-center px-8 py-4 bg-white border border-emerald-200 rounded-2xl hover:border-emerald-500 hover:text-emerald-600 transition shadow-sm font-medium">
-                    <i class="fab fa-github mr-2"></i> GitHub
-                </a>
-            </div>
-        </div>
+    <section class="section split" id="background">
+      <div>
+        <h2>學歷</h2>
+        <p><strong>真理大學</strong><br>財經法律學系，2010 年畢業</p>
+      </div>
+      <div>
+        <h2>語言</h2>
+        <p>語文能力：中文、英文</p>
+      </div>
     </section>
-
-    <!-- 頁尾 -->
-    <footer class="py-16 text-center text-gray-400 border-t border-emerald-50 bg-white">
-        <p class="text-sm font-light uppercase tracking-widest">&copy; 2026 李任鈞. 全心打造.</p>
-    </footer>
-
+  </main>
+  <button class="back-to-top" type="button" aria-label="回到頁首">↑</button>
+  <script src="script.js" defer></script>
 </body>
 </html>
