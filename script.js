@@ -44,25 +44,6 @@ themeButton?.addEventListener("click", () => {
   }
 });
 
-const skillGroups = [...document.querySelectorAll(".skill-group")];
-const skillToggle = document.querySelector(".skill-toggle");
-
-const syncSkillToggle = () => {
-  const allOpen = skillGroups.every((group) => group.open);
-  skillToggle.textContent = allOpen ? "收合全部" : "展開全部";
-  skillToggle.setAttribute("aria-expanded", String(allOpen));
-};
-
-skillToggle?.addEventListener("click", () => {
-  const shouldOpen = !skillGroups.every((group) => group.open);
-  skillGroups.forEach((group) => {
-    group.open = shouldOpen;
-  });
-  syncSkillToggle();
-});
-
-skillGroups.forEach((group) => group.addEventListener("toggle", syncSkillToggle));
-
 const revealItems = document.querySelectorAll(".hero, .section");
 revealItems.forEach((item) => item.classList.add("reveal"));
 
