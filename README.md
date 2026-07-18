@@ -1,16 +1,19 @@
-## Hi there 👋
+# 李任鈞｜Java Backend Resume
 
-<!--
-**leezxt/leezxt** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+以 Java／Spring Boot 後端、系統整合與實作專案為主的個人履歷網站。
 
-Here are some ideas to get you started:
+線上版本：<https://leezxt.github.io/leezxt/>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 本機預覽
+
+```powershell
+python -m http.server 8000
+```
+
+開啟 <http://127.0.0.1:8000/>。
+
+## 主要檔案
+
+- `index.html`：履歷內容與專案經歷。
+- `styles.css`：響應式版面與明暗主題。
+- `script.js`：行動選單、主題切換與導覽互動。

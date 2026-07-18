@@ -1,0 +1,6 @@
+.playwright-cli/
+.agents/
+.codex/
+output/
+server.*.log
+HANDOFF.md
