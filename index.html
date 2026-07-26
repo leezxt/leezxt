@@ -27,9 +27,9 @@
   <main class="page" id="main-content">
     <header class="hero" id="home">
       <div>
-        <p class="eyebrow">Java Backend / Cross-platform Application Developer</p>
+        <p class="eyebrow">Java Backend / Spring Boot / RAG Application Developer</p>
         <h1>李任鈞</h1>
-        <p class="lead">聚焦 Java 後端與系統整合，具備模組化 API、MongoDB／Redis、OIDC／JWT 安全、Docker 可觀測性及 RAG 應用實作經驗，並能串接 Flutter 完成跨平台功能。</p>
+        <p class="lead">聚焦 Java 後端與系統整合，具備四套可展示系統的完整實作經驗，涵蓋 REST API、資料庫設計、快取、身分驗證、容器化、測試、可觀測性與 RAG，並能串接 Flutter 完成跨平台功能。</p>
       </div>
       <address class="contact" aria-label="聯絡資訊">
         <a href="mailto:leezxt@gmail.com">Email / 電子郵件：leezxt@gmail.com</a>
@@ -83,35 +83,35 @@
       <div class="skill-matrix" aria-label="完整技能分類">
         <section class="skill-row">
           <h3>Backend</h3>
-          <p>Java 21、Spring Boot、Spring Web MVC、Spring Data、RESTful API、Jakarta Validation、Maven、JPA、JDBC、JdbcTemplate</p>
+          <p>Java 17／21、Spring Boot、Lombok、MyBatis、RESTful API、Jakarta Validation、Maven</p>
         </section>
         <section class="skill-row">
-          <h3>Mobile &amp; Real-time</h3>
-          <p>Flutter、Dart、Android、Windows Desktop、WebRTC DataChannel、WSS Signaling、libsodium、端對端加密、Offline Mailbox、FCM HTTP v1</p>
+          <h3>Spring Data</h3>
+          <p>Spring Data JDBC、Spring Data JPA、Spring Data Redis、Spring Data MongoDB、Spring Data Elasticsearch、Spring Data R2DBC</p>
         </section>
         <section class="skill-row">
           <h3>Database</h3>
-          <p>MongoDB、PostgreSQL、MySQL、SQLite、Redis、SQL、Flyway、pgvector、Schema Design、樂觀鎖、Cursor Pagination</p>
+          <p>MySQL、MariaDB、PostgreSQL、Microsoft SQL Server、MongoDB、Redis、Elasticsearch、H2、SQLite、pgvector</p>
         </section>
         <section class="skill-row">
-          <h3>Security</h3>
-          <p>Spring Security、OAuth 2.0 Resource Server、OIDC、JWT、Keycloak、RBAC、Scope、Multi-tenancy、ACL</p>
+          <h3>AWS Cloud</h3>
+          <p>AWS EC2（Linux）、AWS S3、AWS RDS（MySQL／PostgreSQL／SQL Server）、AWS Marketplace、AWS Comprehend</p>
         </section>
         <section class="skill-row">
-          <h3>DevOps &amp; Cloud</h3>
-          <p>Docker、Docker Compose、Docker Volume、GitHub Actions、Caddy、TLS / HTTPS、Linux / Ubuntu、Prometheus、Grafana、Loki、Alertmanager、Portainer</p>
+          <h3>DevOps &amp; OS</h3>
+          <p>Docker、Docker Compose、Git、GitHub Actions、CI/CD、Ubuntu／Linux、Windows、Caddy、Prometheus、Grafana、Loki</p>
         </section>
         <section class="skill-row">
-          <h3>AI Applications</h3>
-          <p>Spring AI、RAG、Embeddings、Vector Database、OpenAI / Gemini / DeepSeek API、Ollama、AWS Bedrock</p>
+          <h3>AI &amp; Local Models</h3>
+          <p>Spring AI、RAG、Claude、Codex、Gemini、DeepSeek、MIMO、Google AI Edge、LM Studio、Ollama</p>
         </section>
         <section class="skill-row">
-          <h3>Testing &amp; Tools</h3>
-          <p>JUnit 5、Spring Boot Test、Testcontainers、Acceptance Testing、OpenAPI / Swagger、RFC Problem Details、Git、GitHub、Postman</p>
+          <h3>Security &amp; Testing</h3>
+          <p>Spring Security、OIDC、JWT、Keycloak、Multi-tenancy、ACL、JUnit 5、Testcontainers、OpenAPI、RFC Problem Details</p>
         </section>
         <section class="skill-row">
-          <h3>Architecture</h3>
-          <p>Modular Monolith、Feature-based Packaging、Dependency Injection、Transactional Outbox、Cache-aside、Correlation ID、Typed Event Bus</p>
+          <h3>Mobile &amp; Real-time</h3>
+          <p>Flutter、Dart、Android、WebRTC DataChannel、WebSocket Signaling、端對端加密、Offline Mailbox、FCM HTTP v1</p>
         </section>
       </div>
     </section>
@@ -119,28 +119,31 @@
     <section class="section" id="projects">
       <h2>專案作品 / Projects</h2>
       <div class="projects">
-        <article class="card project-card featured-backend-project">
+        <article class="card project-card featured-backend-project" data-github-repo="NewIdeaCase">
           <p class="project-label">Featured Backend Platform</p>
           <h3>NewIdeaCase / 模組化後端與 RAG 平台</h3>
           <p>使用 Java 21、Spring Boot 4.1 建置模組化單體平台，完成商品目錄、使用者資料與訂單流程；支援 Redis read-through cache、游標分頁、部分更新、樂觀鎖與一致的 RFC Problem Details 錯誤契約。</p>
           <p>整合 Spring Security、OIDC／JWT 與 Keycloak，由後端解析 tenant、role 及 route scope；RAG 流程實作具 ACL 過濾的文件匯入、可靠切片、Ollama Embedding／生成與來源引用，避免跨租戶資料洩漏。</p>
           <p>以 Docker Compose 建立 MongoDB replica set、Redis、Caddy、Prometheus、Grafana、Loki、Alertmanager、Mailpit 與 Portainer，並開發 ECharts 營運監控 Dashboard；使用 JUnit 5、Testcontainers 及驗收腳本覆蓋 API、資料與平台服務。</p>
           <p class="project-status"><strong>目前範圍：</strong>本機平台與 RAG adapter 已實作；AWS SDK、正式 AWS 部署及 MongoDB Atlas Vector Search 仍保留為後續整合邊界。</p>
+          <p class="github-meta" aria-live="polite">正在同步 GitHub 專案資訊…</p>
           <a href="https://github.com/leezxt/NewIdeaCase">GitHub Repository / 公開原始碼</a>
         </article>
-        <article class="card project-card">
+        <article class="card project-card" data-github-repo="StockPredictor">
           <p class="project-label">Featured Project</p>
           <h3>StockPredictor / 台股分析系統</h3>
           <p>使用 Java 17 與 Spring Boot 3 開發台股分析工具，提供股價走勢、K 線、KD 動能、法人籌碼、雷達評分及市場掃描；以 H2 儲存本機資料，並透過快取降低重複查詢成本。</p>
           <p>整合靜態 HTML／CSS／JavaScript 儀表板、Maven 與 Docker Compose，支援 amd64／arm64 映像；同時收斂 CORS、預設關閉 H2 Console，並以環境變數管理 FinMind Token。</p>
+          <p class="github-meta" aria-live="polite">正在同步 GitHub 專案資訊…</p>
           <a href="https://github.com/leezxt/StockPredictor">GitHub Repository</a>
         </article>
-        <article class="card project-card">
+        <article class="card project-card" data-github-repo="stock-ai-system">
           <p class="project-label">MVP Project</p>
           <h3>Stock AI System / AI 股市分析系統</h3>
           <p>以 Java 21、Spring Boot 4.1、PostgreSQL／pgvector 與同源前端建置股市分析 MVP，完成市場搜尋、技術摘要、預測、AI 分析／模型比較／聊天、自選清單、帳號設定、回測及 RAG 文件匯入與檢索。</p>
           <p>整合 Yahoo Finance、TWSE、FinMind、Alpha Vantage、FMP 與 MOPS 等資料來源，採 fallback-first adapter；登入使用 HttpOnly／SameSite Cookie，AI Key 以 AES-256-GCM 加密保存，受保護端點並套用使用者與 IP 限流。</p>
           <p>透過 Docker Compose 啟動 Spring Boot 與 PostgreSQL／pgvector，並保留資料庫不可用時的檔案或記憶體 fallback，支援 OpenAI 及 OpenAI-compatible AI Provider。</p>
+          <p class="github-meta" aria-live="polite">正在同步 GitHub 專案資訊…</p>
           <a href="https://github.com/leezxt/stock-ai-system">GitHub Repository</a>
         </article>
         <article class="card project-card">

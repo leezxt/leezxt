@@ -84,3 +84,46 @@ window.addEventListener("scroll", () => {
 backToTop?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+const formatGitHubDate = (date) => new Intl.DateTimeFormat("zh-TW", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+}).format(new Date(date));
+
+const syncGitHubProjects = async () => {
+  const projectCards = document.querySelectorAll("[data-github-repo]");
+  if (!projectCards.length) return;
+
+  try {
+    const response = await fetch("https://api.github.com/users/leezxt/repos?per_page=100&sort=updated", {
+      headers: { Accept: "application/vnd.github+json" },
+    });
+    if (!response.ok) throw new Error(`GitHub API ${response.status}`);
+
+    const repositories = await response.json();
+    const repositoriesByName = new Map(
+      repositories.map((repository) => [repository.name.toLowerCase(), repository]),
+    );
+
+    projectCards.forEach((card) => {
+      const repository = repositoriesByName.get(card.dataset.githubRepo.toLowerCase());
+      const meta = card.querySelector(".github-meta");
+      if (!repository || !meta) return;
+
+      const details = [
+        repository.language && `主要語言 ${repository.language}`,
+        `★ ${repository.stargazers_count}`,
+        `更新於 ${formatGitHubDate(repository.updated_at)}`,
+      ].filter(Boolean);
+
+      meta.textContent = details.join(" · ");
+    });
+  } catch {
+    document.querySelectorAll(".github-meta").forEach((meta) => {
+      meta.textContent = "GitHub 專案資訊暫時無法載入";
+    });
+  }
+};
+
+syncGitHubProjects();
