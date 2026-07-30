@@ -112,12 +112,23 @@ const syncGitHubProjects = async () => {
       if (!repository || !meta) return;
 
       const details = [
+        repository.private ? "私有專案" : "公開專案",
         repository.language && `主要語言 ${repository.language}`,
         `★ ${repository.stargazers_count}`,
-        `更新於 ${formatGitHubDate(repository.updated_at)}`,
+        repository.archived && "已封存",
+        `最新推送 ${formatGitHubDate(repository.pushed_at || repository.updated_at)}`,
       ].filter(Boolean);
 
       meta.textContent = details.join(" · ");
+      if (repository.description) meta.title = repository.description;
+
+      const repositoryLink = card.querySelector('a[href*="github.com"]');
+      if (repositoryLink) {
+        repositoryLink.href = repository.html_url;
+        repositoryLink.textContent = repository.private
+          ? "GitHub Repository / 私有專案"
+          : "GitHub Repository / 公開原始碼";
+      }
     });
   } catch {
     document.querySelectorAll(".github-meta").forEach((meta) => {

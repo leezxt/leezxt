@@ -127,10 +127,10 @@
         <article class="card project-card" data-github-repo="StockPredictor">
           <p class="project-label">Featured Project</p>
           <h3>StockPredictor / 台股分析系統</h3>
-          <p>使用 Java 17 與 Spring Boot 3 開發台股分析工具，提供股價走勢、K 線、KD 動能、法人籌碼、雷達評分及市場掃描；以 H2 儲存本機資料，並透過快取降低重複查詢成本。</p>
-          <p>整合靜態 HTML／CSS／JavaScript 儀表板、Maven 與 Docker Compose，支援 amd64／arm64 映像；同時收斂 CORS、預設關閉 H2 Console，並以環境變數管理 FinMind Token。</p>
+          <p>使用 Java 17 與 Spring Boot 3.3 開發台股研究與決策支援系統，整合歷史行情、K 線、KD、價量、法人籌碼、基本面、ETF 折溢價與市場廣度，提供個股診斷、雷達評分、策略訊號、批次掃描及背景回補。</p>
+          <p>正式執行環境採 PostgreSQL 17、Flyway、HikariCP 與 repository 分層，預設以 Docker Compose 啟動應用程式與資料庫；整合測試使用 Testcontainers，H2 僅保留為本機相容與受控 rollback 選項。</p>
           <p class="github-meta" aria-live="polite">正在同步 GitHub 專案資訊…</p>
-          <a href="https://github.com/leezxt/StockPredictor">GitHub Repository</a>
+          <a href="https://github.com/leezxt/StockPredictor">GitHub Repository / 公開原始碼</a>
         </article>
         <article class="card project-card" data-github-repo="stock-ai-system">
           <p class="project-label">MVP Project</p>
@@ -139,16 +139,17 @@
           <p>整合 Yahoo Finance、TWSE、FinMind、Alpha Vantage、FMP 與 MOPS 等資料來源，採 fallback-first adapter；登入使用 HttpOnly／SameSite Cookie，AI Key 以 AES-256-GCM 加密保存，受保護端點並套用使用者與 IP 限流。</p>
           <p>透過 Docker Compose 啟動 Spring Boot 與 PostgreSQL／pgvector，並保留資料庫不可用時的檔案或記憶體 fallback，支援 OpenAI 及 OpenAI-compatible AI Provider。</p>
           <p class="github-meta" aria-live="polite">正在同步 GitHub 專案資訊…</p>
-          <a href="https://github.com/leezxt/stock-ai-system">GitHub Repository</a>
+          <a href="https://github.com/leezxt/stock-ai-system">GitHub Repository / 公開原始碼</a>
         </article>
-        <article class="card project-card">
+        <article class="card project-card" data-github-repo="p2p-chat">
           <p class="project-label">Cross-platform Project</p>
           <h3>Secure Messenger / 端對端加密即時通訊系統</h3>
           <p>以 Flutter 與 Java 21／Spring Boot 4.1 開發模組化 P2P 通訊系統；已用兩台 Android AVD 驗證註冊、邀請碼、雙向聯絡人、公鑰信任及一對一端對端加密文字訊息。</p>
           <p>以 WebRTC DataChannel 傳輸加密訊息、WebSocket 進行 Signaling，並完成 P2P 失敗後的加密 Offline Mailbox fallback、ACK／重試及 STORED → DELIVERED → READ 已讀流程；後端使用 PostgreSQL、Flyway、JWT 與 Docker Compose。</p>
           <p>已完成低頻 Presence 與 FCM HTTP v1 worker，並建立 GitHub Actions 與 Firebase Test Lab dry-run Gate；架構同時限制背景 heartbeat，以降低行動裝置資源消耗。</p>
           <p class="project-status"><strong>目前狀態：</strong>仍為內部 Android Alpha；雙真機、真實 FCM Push、正式簽章、Desktop 資源驗收與 iOS 實機 Gate 尚未完成。</p>
-          <a href="https://github.com/leezxt/p2p-chat">GitHub Repository (Private)</a>
+          <p class="github-meta" aria-live="polite">正在同步 GitHub 專案資訊…</p>
+          <a href="https://github.com/leezxt/p2p-chat">GitHub Repository / 公開原始碼</a>
         </article>
       </div>
     </section>
@@ -165,6 +166,6 @@
     </section>
   </main>
   <button class="back-to-top" type="button" aria-label="回到頁首">↑</button>
-  <script src="script.js" defer></script>
+  <script src="script.js?v=github-properties-20260731" defer></script>
 </body>
 </html>
