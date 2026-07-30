@@ -314,116 +314,85 @@ h3 {
   color: var(--muted);
 }
 
-.skill-path {
-  position: relative;
+.skill-cards {
   display: grid;
-  gap: 22px;
-  padding: 8px 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
-.skill-path::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  background: linear-gradient(var(--accent), var(--accent-4), var(--accent-3), var(--accent-2));
-  border-radius: 999px;
-  transform: translateX(-50%);
-  opacity: .55;
-}
-
-.skill-node {
-  --node-accent: var(--accent);
+.skill-card {
+  --card-accent: var(--accent);
   position: relative;
-  width: calc(50% - 32px);
-  padding: 20px 22px;
+  min-height: 170px;
+  padding: 22px;
   border: 1px solid var(--line);
-  border-top: 3px solid var(--node-accent);
+  border-top: 3px solid var(--card-accent);
   border-radius: 12px;
   background: linear-gradient(145deg, var(--panel), var(--panel-soft));
   box-shadow: var(--shadow);
-  transition: transform .18s ease, box-shadow .18s ease;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-.skill-node:nth-child(even) {
-  justify-self: end;
-}
-
-.skill-node:nth-child(3n + 2) {
-  --node-accent: var(--accent-4);
-}
-
-.skill-node:nth-child(3n) {
-  --node-accent: var(--accent-3);
-}
-
-.skill-node:nth-child(7) {
-  --node-accent: var(--accent-2);
-}
-
-.skill-node::after {
+.skill-card::after {
   content: "";
   position: absolute;
-  top: 27px;
-  width: 32px;
-  height: 2px;
-  background: var(--node-accent);
-  opacity: .55;
-}
-
-.skill-node:nth-child(odd)::after {
   right: -32px;
+  bottom: -42px;
+  width: 130px;
+  height: 130px;
+  background: radial-gradient(circle, var(--card-accent), transparent 68%);
+  opacity: .08;
+  pointer-events: none;
 }
 
-.skill-node:nth-child(even)::after {
-  left: -32px;
+.skill-card:nth-child(4n + 2) {
+  --card-accent: var(--accent-4);
 }
 
-.skill-node:hover {
+.skill-card:nth-child(4n + 3) {
+  --card-accent: var(--accent-3);
+}
+
+.skill-card:nth-child(4n) {
+  --card-accent: var(--accent-2);
+}
+
+.skill-card:hover {
   transform: translateY(-3px);
+  border-color: var(--card-accent);
   box-shadow: var(--shadow-hover);
 }
 
-.skill-step {
-  position: absolute;
-  top: 9px;
+.skill-card-wide {
+  grid-column: 1 / -1;
+  min-height: 0;
+}
+
+.skill-card h3 {
+  position: relative;
   z-index: 1;
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  color: var(--paper);
-  background: var(--node-accent);
-  border: 4px solid var(--paper);
-  border-radius: 50%;
-  font-size: .72rem;
-  font-weight: 800;
-  letter-spacing: .04em;
-}
-
-.skill-node:nth-child(odd) .skill-step {
-  right: -51px;
-}
-
-.skill-node:nth-child(even) .skill-step {
-  left: -51px;
-}
-
-.skill-node h3,
-.skill-node p {
-  margin: 0;
-}
-
-.skill-node h3 {
-  margin-bottom: 8px;
+  margin: 0 0 16px;
   color: var(--accent-strong);
 }
 
-.skill-node p {
-  color: var(--muted);
-  line-height: 1.65;
+.skill-tags {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.skill-tags span {
+  padding: 7px 11px;
+  color: var(--ink);
+  background: var(--accent-wash);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 34%, var(--line));
+  border-radius: 999px;
+  font-size: .88rem;
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 .item {
@@ -629,33 +598,12 @@ ul {
     padding: 16px;
   }
 
-  .skill-path {
-    gap: 16px;
-    padding-left: 48px;
+  .skill-cards {
+    grid-template-columns: 1fr;
   }
 
-  .skill-path::before {
-    left: 19px;
-    transform: none;
-  }
-
-  .skill-node,
-  .skill-node:nth-child(even) {
-    width: 100%;
-    justify-self: stretch;
-  }
-
-  .skill-node:nth-child(odd)::after,
-  .skill-node:nth-child(even)::after {
-    right: auto;
-    left: -29px;
-    width: 29px;
-  }
-
-  .skill-node:nth-child(odd) .skill-step,
-  .skill-node:nth-child(even) .skill-step {
-    right: auto;
-    left: -48px;
+  .skill-card {
+    min-height: 0;
   }
 
   .back-to-top {
