@@ -2,31 +2,48 @@
 
 :root {
   color-scheme: light;
-  --ink: #18212f;
-  --muted: #5f6e82;
-  --line: #d6dde7;
-  --paper: #f6f8fa;
-  --panel: #ffffff;
-  --accent: #1a6f63;
-  --accent-strong: #0d4f54;
-  --accent-2: #c66a3d;
-  --accent-3: #6a5acd;
-  --accent-4: #1b8fce;
-  --shadow: 0 14px 34px rgba(24, 33, 47, .08);
-  --nav-bg: rgba(246, 248, 250, .88);
+  --ink: #34433f;
+  --muted: #62706a;
+  --line: #d9ded8;
+  --paper: #f3f3ee;
+  --panel: #fbfaf7;
+  --panel-soft: #f6f7f3;
+  --accent: #587d73;
+  --accent-strong: #3f655e;
+  --accent-2: #b98268;
+  --accent-3: #7f88a6;
+  --accent-4: #6f949c;
+  --accent-wash: rgba(88, 125, 115, .1);
+  --status-bg: rgba(185, 130, 104, .1);
+  --hero-start: #3f5d58;
+  --hero-mid: #5d7770;
+  --hero-end: #737b94;
+  --shadow: 0 14px 34px rgba(61, 76, 70, .08);
+  --shadow-hover: 0 22px 42px rgba(61, 76, 70, .12);
+  --nav-bg: rgba(243, 243, 238, .9);
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --ink: #edf4f6;
-  --muted: #aab8c7;
-  --line: #344252;
-  --paper: #101722;
-  --panel: #17212e;
-  --accent: #65c7b6;
-  --accent-strong: #8ddbcf;
-  --shadow: 0 14px 34px rgba(0, 0, 0, .24);
-  --nav-bg: rgba(16, 23, 34, .9);
+  --ink: #e3e9e5;
+  --muted: #aeb9b4;
+  --line: #3d4946;
+  --paper: #1b2222;
+  --panel: #252e2d;
+  --panel-soft: #222a2a;
+  --accent: #8fb9ae;
+  --accent-strong: #b1d0c8;
+  --accent-2: #d1a08a;
+  --accent-3: #a6acc8;
+  --accent-4: #91b8c0;
+  --accent-wash: rgba(143, 185, 174, .12);
+  --status-bg: rgba(209, 160, 138, .1);
+  --hero-start: #293c39;
+  --hero-mid: #3e5450;
+  --hero-end: #50566b;
+  --shadow: 0 14px 34px rgba(5, 10, 10, .2);
+  --shadow-hover: 0 22px 42px rgba(5, 10, 10, .28);
+  --nav-bg: rgba(27, 34, 34, .92);
 }
 
 * {
@@ -42,17 +59,17 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    linear-gradient(135deg, rgba(26, 111, 99, .08), transparent 28%),
-    linear-gradient(225deg, rgba(27, 143, 206, .08), transparent 24%),
-    linear-gradient(180deg, #eff3f2 0%, var(--paper) 22%, #f9fbfc 100%);
+    linear-gradient(135deg, rgba(88, 125, 115, .08), transparent 30%),
+    linear-gradient(225deg, rgba(127, 136, 166, .07), transparent 28%),
+    var(--paper);
   font-family: "Manrope", "Noto Sans TC", sans-serif;
   line-height: 1.65;
 }
 
 :root[data-theme="dark"] body {
   background:
-    linear-gradient(135deg, rgba(26, 111, 99, .18), transparent 30%),
-    linear-gradient(225deg, rgba(106, 90, 205, .16), transparent 28%),
+    linear-gradient(135deg, rgba(143, 185, 174, .08), transparent 32%),
+    linear-gradient(225deg, rgba(166, 172, 200, .07), transparent 30%),
     var(--paper);
 }
 
@@ -148,7 +165,7 @@ button {
 .theme-toggle:hover,
 .menu-toggle:hover {
   color: var(--accent-strong);
-  background: rgba(26, 111, 99, .1);
+  background: var(--accent-wash);
 }
 
 .theme-toggle,
@@ -174,8 +191,7 @@ button {
   align-items: end;
   padding: 48px;
   color: #ffffff;
-  background:
-    linear-gradient(135deg, rgba(15, 34, 40, .98), rgba(26, 111, 99, .88) 48%, rgba(106, 90, 205, .72));
+  background: linear-gradient(135deg, var(--hero-start), var(--hero-mid) 52%, var(--hero-end));
   background-size: cover;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -315,7 +331,7 @@ h3 {
   border: 1px solid var(--line);
   border-top: 3px solid var(--accent);
   border-radius: 8px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(248, 250, 252, .98));
+  background: linear-gradient(180deg, var(--panel), var(--panel-soft));
   box-shadow: var(--shadow);
 }
 
@@ -401,16 +417,15 @@ ul {
   border-left: 4px solid transparent;
   border-image: linear-gradient(180deg, var(--accent-2), var(--accent-4)) 1;
   border-radius: 8px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(247, 249, 251, .98));
+  background: linear-gradient(180deg, var(--panel), var(--panel-soft));
   box-shadow: var(--shadow);
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 24px 46px rgba(24, 33, 47, .12);
-  border-color: #c7d4dc;
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-4);
 }
 
 .card p:last-child {
@@ -421,16 +436,13 @@ ul {
   display: grid;
   gap: 12px;
   max-width: 100%;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(246, 250, 252, .98)),
-    linear-gradient(135deg, rgba(27, 143, 206, .06), transparent 42%);
+  background: linear-gradient(180deg, var(--panel), var(--panel-soft));
 }
 
 .featured-backend-project {
   border-left-color: var(--accent);
   border-image: none;
-  background:
-    linear-gradient(180deg, rgba(246, 252, 250, .98), rgba(245, 249, 252, .98));
+  background: linear-gradient(180deg, var(--panel), var(--accent-wash));
 }
 
 .project-label {
@@ -455,7 +467,7 @@ ul {
   margin: 0;
   padding: 12px 14px;
   color: var(--muted);
-  background: rgba(198, 106, 61, .08);
+  background: var(--status-bg);
   border-left: 3px solid var(--accent-2);
   border-radius: 4px;
   font-size: .92rem;
@@ -515,11 +527,11 @@ ul {
 :root[data-theme="dark"] .core-skills li,
 :root[data-theme="dark"] .card,
 :root[data-theme="dark"] .project-card {
-  background: linear-gradient(180deg, rgba(26, 38, 52, .98), rgba(20, 30, 43, .98));
+  background: linear-gradient(180deg, var(--panel), var(--panel-soft));
 }
 
 :root[data-theme="dark"] .featured-backend-project {
-  background: linear-gradient(180deg, rgba(24, 49, 49, .98), rgba(20, 30, 43, .98));
+  background: linear-gradient(180deg, var(--panel), var(--accent-wash));
 }
 
 @media (max-width: 760px) {
