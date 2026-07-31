@@ -1,4 +1,4 @@
-# 李任鈞｜Java Backend Resume
+# leezxt｜Java Backend Resume
 
 以 Java／Spring Boot 後端、系統整合與實作專案為主的個人履歷網站。
 
