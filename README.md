@@ -2,7 +2,7 @@
 
 以 Java／Spring Boot 後端、系統整合與實作專案為主的個人履歷網站。
 
-線上版本：<https://leezxt.github.io/leezxt/>
+線上版本：<[https://leezxt.github.io/leezxt/](https://leezxt.github.io/leezxt/?v=dc7659e)>
 
 ## 本機預覽
 
