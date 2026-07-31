@@ -2,48 +2,48 @@
 
 :root {
   color-scheme: light;
-  --ink: #34433f;
-  --muted: #62706a;
-  --line: #d9ded8;
-  --paper: #f3f3ee;
-  --panel: #fbfaf7;
-  --panel-soft: #f6f7f3;
-  --accent: #587d73;
-  --accent-strong: #3f655e;
-  --accent-2: #b98268;
-  --accent-3: #7f88a6;
-  --accent-4: #6f949c;
-  --accent-wash: rgba(88, 125, 115, .1);
-  --status-bg: rgba(185, 130, 104, .1);
-  --hero-start: #3f5d58;
-  --hero-mid: #5d7770;
-  --hero-end: #737b94;
-  --shadow: 0 14px 34px rgba(61, 76, 70, .08);
-  --shadow-hover: 0 22px 42px rgba(61, 76, 70, .12);
-  --nav-bg: rgba(243, 243, 238, .9);
+  --ink: #3d332c;
+  --muted: #74665c;
+  --line: #ded2c4;
+  --paper: #f3eee6;
+  --panel: #fcf8f1;
+  --panel-soft: #f6efe5;
+  --accent: #6f7659;
+  --accent-strong: #4f5940;
+  --accent-2: #a46f4f;
+  --accent-3: #7c6b61;
+  --accent-4: #8c735d;
+  --accent-wash: rgba(111, 118, 89, .11);
+  --status-bg: rgba(164, 111, 79, .11);
+  --wood-base: #6e4b35;
+  --wood-dark: #3f2b21;
+  --wood-light: #9a7252;
+  --shadow: 0 14px 34px rgba(74, 52, 39, .1);
+  --shadow-hover: 0 22px 42px rgba(74, 52, 39, .16);
+  --nav-bg: rgba(243, 238, 230, .92);
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --ink: #e3e9e5;
-  --muted: #aeb9b4;
-  --line: #3d4946;
-  --paper: #1b2222;
-  --panel: #252e2d;
-  --panel-soft: #222a2a;
-  --accent: #8fb9ae;
-  --accent-strong: #b1d0c8;
-  --accent-2: #d1a08a;
-  --accent-3: #a6acc8;
-  --accent-4: #91b8c0;
-  --accent-wash: rgba(143, 185, 174, .12);
-  --status-bg: rgba(209, 160, 138, .1);
-  --hero-start: #293c39;
-  --hero-mid: #3e5450;
-  --hero-end: #50566b;
-  --shadow: 0 14px 34px rgba(5, 10, 10, .2);
-  --shadow-hover: 0 22px 42px rgba(5, 10, 10, .28);
-  --nav-bg: rgba(27, 34, 34, .92);
+  --ink: #eee6dc;
+  --muted: #c0b2a5;
+  --line: #4b4037;
+  --paper: #211b17;
+  --panel: #2d2520;
+  --panel-soft: #28211d;
+  --accent: #aeb78b;
+  --accent-strong: #d0d5ae;
+  --accent-2: #d29a75;
+  --accent-3: #b5a096;
+  --accent-4: #c1a07f;
+  --accent-wash: rgba(174, 183, 139, .12);
+  --status-bg: rgba(210, 154, 117, .11);
+  --wood-base: #4c3325;
+  --wood-dark: #241711;
+  --wood-light: #76513a;
+  --shadow: 0 14px 34px rgba(9, 6, 4, .24);
+  --shadow-hover: 0 22px 42px rgba(9, 6, 4, .34);
+  --nav-bg: rgba(33, 27, 23, .93);
 }
 
 * {
@@ -51,7 +51,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: 82px;
 }
 
@@ -59,8 +59,8 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    linear-gradient(135deg, rgba(88, 125, 115, .08), transparent 30%),
-    linear-gradient(225deg, rgba(127, 136, 166, .07), transparent 28%),
+    linear-gradient(135deg, rgba(164, 111, 79, .07), transparent 30%),
+    linear-gradient(225deg, rgba(111, 118, 89, .06), transparent 28%),
     var(--paper);
   font-family: "Manrope", "Noto Sans TC", sans-serif;
   line-height: 1.65;
@@ -68,8 +68,8 @@ body {
 
 :root[data-theme="dark"] body {
   background:
-    linear-gradient(135deg, rgba(143, 185, 174, .08), transparent 32%),
-    linear-gradient(225deg, rgba(166, 172, 200, .07), transparent 30%),
+    linear-gradient(135deg, rgba(210, 154, 117, .06), transparent 32%),
+    linear-gradient(225deg, rgba(174, 183, 139, .05), transparent 30%),
     var(--paper);
 }
 
@@ -191,7 +191,12 @@ button {
   align-items: end;
   padding: 48px;
   color: #ffffff;
-  background: linear-gradient(135deg, var(--hero-start), var(--hero-mid) 52%, var(--hero-end));
+  background:
+    radial-gradient(ellipse at 16% 26%, rgba(255, 220, 178, .16), transparent 20%),
+    radial-gradient(ellipse at 70% 72%, rgba(28, 13, 6, .28), transparent 22%),
+    repeating-linear-gradient(90deg, transparent 0 118px, rgba(25, 13, 7, .28) 119px 122px, rgba(255, 222, 181, .07) 123px 125px),
+    repeating-linear-gradient(2deg, rgba(255, 255, 255, .025) 0 2px, rgba(31, 17, 10, .045) 3px 6px),
+    linear-gradient(110deg, var(--wood-dark), var(--wood-base) 48%, var(--wood-light));
   background-size: cover;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -203,12 +208,8 @@ button {
   position: absolute;
   inset: 0;
   background:
-    repeating-linear-gradient(
-      135deg,
-      rgba(255, 255, 255, .08) 0 10px,
-      transparent 10px 28px
-    );
-  opacity: .18;
+    repeating-radial-gradient(ellipse at 30% 130%, transparent 0 18px, rgba(22, 11, 6, .22) 19px 21px, transparent 22px 38px);
+  opacity: .34;
   pointer-events: none;
 }
 
@@ -218,9 +219,7 @@ button {
   inset: auto -10% -30% auto;
   width: 62%;
   height: 70%;
-  background:
-    linear-gradient(135deg, rgba(27, 143, 206, .24), rgba(198, 106, 61, .18)),
-    linear-gradient(180deg, transparent, rgba(255, 255, 255, .06));
+  background: radial-gradient(ellipse, rgba(255, 212, 164, .17), transparent 66%);
   transform: rotate(-8deg);
   opacity: .55;
   pointer-events: none;
@@ -278,9 +277,25 @@ h3 {
 
 .lead {
   max-width: 680px;
-  margin-bottom: 0;
+  margin-bottom: 18px;
   color: rgba(255, 255, 255, .86);
   font-size: 1.12rem;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hero-tags span {
+  padding: 5px 10px;
+  color: rgba(255, 255, 255, .92);
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .17);
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 600;
 }
 
 .contact {
@@ -312,6 +327,32 @@ h3 {
 .section-intro {
   margin: -8px 0 20px;
   color: var(--muted);
+}
+
+.strength-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.strength-list li {
+  position: relative;
+  padding: 13px 16px 13px 40px;
+  background: var(--accent-wash);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.strength-list li::before {
+  content: "✓";
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  color: var(--accent-strong);
+  font-weight: 800;
 }
 
 .skill-cards {
@@ -374,6 +415,13 @@ h3 {
   z-index: 1;
   margin: 0 0 16px;
   color: var(--accent-strong);
+}
+
+.skill-card > p {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+  color: var(--muted);
 }
 
 .skill-tags {
@@ -486,6 +534,56 @@ ul {
   font-size: .92rem;
 }
 
+.autobiography-copy {
+  max-width: 920px;
+}
+
+.language-panel {
+  max-width: 920px;
+  margin-top: 22px;
+  padding: 16px 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.language-panel summary {
+  color: var(--accent-strong);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.language-panel[open] summary {
+  margin-bottom: 18px;
+}
+
+.english-copy {
+  max-width: none;
+  color: var(--muted);
+}
+
+.background-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.background-card {
+  padding: 22px;
+  background: linear-gradient(145deg, var(--panel), var(--panel-soft));
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.background-card h3 {
+  color: var(--accent-strong);
+}
+
+.background-card p:last-child {
+  margin-bottom: 0;
+}
+
 .github-meta {
   margin: 0;
   color: var(--muted);
@@ -586,7 +684,9 @@ ul {
   .hero,
   .item,
   .projects,
-  .split {
+  .split,
+  .strength-list,
+  .background-grid {
     grid-template-columns: 1fr;
   }
 

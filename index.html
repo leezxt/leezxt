@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="個人履歷與作品集">
-  <title>李任鈞 | Backend Resume</title>
+  <meta name="description" content="李任鈞的 AI 應用、Java 後端與軟體開發履歷作品集">
+  <title>李任鈞 | AI &amp; Backend Resume</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="styles.css?v=skill-cards-20260731">
+  <link rel="stylesheet" href="styles.css?v=resume-pdf-20260731">
 </head>
 <body>
   <a class="skip-link" href="#main-content">跳到主要內容</a>
@@ -16,9 +16,9 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">選單</button>
       <div class="nav-links" id="site-menu">
         <a href="#about">關於我</a>
-        <a href="#autobiography">自傳</a>
-        <a href="#skills">技能</a>
+        <a href="#skills">專長</a>
         <a href="#projects">專案</a>
+        <a href="#autobiography">自傳</a>
         <a href="#background">背景</a>
         <button class="theme-toggle" type="button" aria-pressed="false">深色模式</button>
       </div>
@@ -28,9 +28,12 @@
   <main class="page" id="main-content">
     <header class="hero" id="home">
       <div>
-        <p class="eyebrow">Java Backend / Spring Boot / RAG Application Developer</p>
+        <p class="eyebrow">AI Application / Java Backend / Software Developer</p>
         <h1>李任鈞</h1>
-        <p class="lead">聚焦 Java 後端與系統整合，具備四套可展示系統的完整實作經驗，涵蓋 REST API、資料庫設計、快取、身分驗證、容器化、測試、可觀測性與 RAG，並能串接 Flutter 完成跨平台功能。</p>
+        <p class="lead">從服務業與現場工作跨入軟體開發，聚焦 AI 應用、Java／Spring Boot 後端、資料庫整合與通訊軟體，能運用 AI 協作將需求拆解並完成可驗證的產品原型。</p>
+        <div class="hero-tags" aria-label="個人特色">
+          <span>使用者需求理解</span><span>跨領域學習</span><span>耐心分析除錯</span><span>主動解決問題</span><span>AI 協作開發</span><span>獨立完成原型</span>
+        </div>
       </div>
       <address class="contact" aria-label="聯絡資訊">
         <a href="mailto:leezxt@gmail.com">Email / 電子郵件：leezxt@gmail.com</a>
@@ -42,70 +45,64 @@
 
     <section class="section" id="about">
       <h2>關於我 / About</h2>
-      <div class="summary-block about-copy">
-        <p>過去主要從事服務業，累積了與人溝通、理解需求及處理現場問題的經驗。一次轉職學習的機會，讓我接觸到 AI 與後端開發，也意外發現自己對「把想法做成產品」充滿興趣。</p>
-        <p>我運用 Java、Spring Boot 與 AI 工具，獨立開發台股分析系統及端對端加密通訊軟體。服務業讓我學會站在使用者角度思考；程式開發則讓我能真正動手解決問題。現在希望成為一名懂使用者、能耐心除錯，也能善用 AI 完成產品原型的 AI 應用工程師。</p>
-      </div>
-    </section>
-
-    <section class="section" id="autobiography">
-      <h2>自傳 / Autobiography</h2>
-      <div class="summary-block autobiography-copy">
-        <p>我原本就讀財經法律，畢業後在宜蘭工作。隨著工作經驗累積，我發現當地職涯選擇與薪資成長空間有限，因此開始思考轉換跑道。剛好接觸到 AI 與後端工程師課程，第一次把需求拆成資料結構、程式邏輯與 API，再看見功能實際運作，讓我確定自己願意長期投入軟體開發。雖然目前沒有軟體業的正式工作經歷，但我選擇持續開發完整專案，將學習內容轉化為能操作、能測試、也能持續改進的成果。</p>
-        <p>課程中的專案皆由我個人完成。4 月因個人投資與分析需求開始構思股票系統，並在 5 月完成 Stock AI System 畢業專案。系統使用 PostgreSQL／pgvector，串接 Yahoo Finance、TWSE、FinMind、Alpha Vantage、FMP、MOPS 等金融資料來源與 AI Provider，實作市場搜尋、技術摘要、AI 分析、模型比較、聊天、回測及 RAG 文件檢索。6 月完成的 NewIdeaCase 則依老師教授內容延伸設計，以 Java／Spring Boot 建立模組化後端，整合 MongoDB、Redis、OIDC／JWT、多租戶權限、Docker 與 RAG。這兩個畢業專案讓我第一次把後端、外部 API、資料庫與生成式 AI 放進同一套完整流程，也讓我理解功能完成只是起點，資料一致性、安全邊界、例外處理與部署方式同樣重要。</p>
-        <p>課程結束後，我沒有停在畢業專案，而是繼續依照自己的投資需求開發 StockPredictor，讓它從台股查詢工具逐步擴充為整合歷史行情、K 線、技術指標、法人籌碼、基本面、ETF 折溢價、市場廣度、雷達評分與批次掃描的系統。系統透過 FinMind、TWSE／TPEx 與 Yahoo Finance 取得資料，使用 client、排程與背景回補流程，再將不同 API 的欄位、日期範圍、空值與錯誤格式轉換為一致的內部模型。當來源暫時無法使用時，也需要設計 fallback 與可理解的錯誤回應。這段經驗讓我體會到，串接 API 不只是成功取得 JSON，而是要讓來源差異與失敗情境不影響後續分析。</p>
-        <p>StockPredictor 早期使用 H2，原本設計了兩週回測機制，但重新開啟軟體後缺少可延續的歷史資料，因此難以觀察投資策略的實際效果。我將主要資料庫遷移至 PostgreSQL 17，加入 Flyway、HikariCP、repository 分層、Testcontainers 與 Docker Compose。遷移最麻煩的是測試流程與時間，需要反覆確認資料寫入、查詢、回補、回測與既有功能是否仍然一致。完成後，資料可以持續保存並支援後續比較，也讓我理解真實系統不只需要新增功能，還要考慮資料遷移、相容性、備份、回復策略，以及每次重構是否能被驗證。</p>
-        <p>目前最想持續投入的是 Secure Messenger。市面上的通訊軟體常加入許多我不需要的功能，因此我希望把通訊簡化，聚焦聯絡人、信任關係與安全傳訊。系統結合 Flutter、Java／Spring Boot、WebRTC、WebSocket、JWT 與 PostgreSQL，從註冊、邀請碼與公鑰信任開始，逐步加入端對端加密訊息、離線信箱、ACK／重試、已讀狀態與推播。最初訊息必須手動按下同步按鍵才能更新，後來我把流程改成依待機秒數自動同步，目前已能在兩台 Android 模擬器之間成功傳送訊息。這個里程碑讓我更理解，產品原型不只要功能存在，也要讓操作流程接近使用者真正期待的體驗；通訊系統的可靠性，也必須從網路中斷、訊息重送與狀態同步等失敗情境來驗證。</p>
-        <p>上述專案大多透過 AI 協作完成。我目前以 Codex 為主要開發工具，DeepSeek 作為輔助驗證與除錯，從需求拆解、開發到測試都會運用 AI。我負責提出產品需求、準備硬體與執行環境、確認功能是否符合預期，並針對不一致的結果提出修改方向。我會在提示詞中交代目標、現有架構、限制與驗收條件，把大型功能拆成可以逐項完成的步驟，再檢查程式、設定、日誌與實際操作結果。遇到問題時，我不直接接受生成答案，而是觀察 AI 的分析流程、理解原因後再自行驗證。每天投入約三至五小時，通常以一至兩週完成一個可操作的原型；Secure Messenger 也讓我確認自己能運用 AI 工具，將一個想法從零推進到可測試的產品。</p>
-        <p>我的目標是成為能獨立完成產品原型的 AI 應用工程師，投入生成式 AI／RAG 系統整合、AI 應用開發，或結合 Java 後端的 AI 相關職務。我希望把 API 串接、資料庫、容器化、跨平台與 AI 協作經驗帶入團隊，並持續補強系統設計、測試、資安與部署能力。對我而言，AI 不只是加快寫程式的工具，而是協助我釐清需求、理解系統、驗證流程並把構想穩定落地的方法。</p>
-      </div>
+      <p class="section-intro">13–14 年工作經歷，從服務與現場問題處理累積使用者視角，目前轉向 AI 與後端工程。</p>
+      <ul class="strength-list">
+        <li>具備服務業經驗，擅長溝通協調與理解使用者需求。</li>
+        <li>能即時處理現場問題，並依實際情況調整解決方式。</li>
+        <li>能將複雜需求拆解為明確、可執行及可驗證的步驟。</li>
+        <li>善用 AI 工具協助需求分析、程式開發與問題排查。</li>
+        <li>重視實際操作、測試結果與系統日誌，不直接接受未經驗證的答案。</li>
+        <li>遇到問題願意持續追查原因，具備耐心與除錯能力。</li>
+        <li>保持主動學習，持續將新方法應用於開發專案。</li>
+        <li>具備獨立規劃、開發及完成產品原型的能力。</li>
+      </ul>
     </section>
 
     <section class="section" id="skills">
-      <h2>技能欄位 / Skills</h2>
-      <p class="section-intro">依專業領域分類，技能內容與 104 履歷一致。</p>
+      <h2>專長 / Expertise</h2>
+      <p class="section-intro">依新版 104 履歷整理，呈現我能實際處理的開發工作與工具。</p>
 
-      <div class="skill-cards" aria-label="104 核心技能分類">
+      <div class="skill-cards" aria-label="104 專長分類">
         <article class="skill-card">
-          <h3>後端框架與開發工具</h3>
+          <h3>AI 協作與問題排查</h3>
+          <p>以 Codex 為主要開發工具，搭配 DeepSeek 進行需求拆解、開發、測試與除錯，並透過程式碼與日誌自行驗證結果。</p>
           <div class="skill-tags">
-            <span>Spring Boot</span><span>Lombok</span><span>MyBatis</span>
+            <span>Codex</span><span>DeepSeek</span><span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Copilot</span>
           </div>
         </article>
         <article class="skill-card">
-          <h3>Spring Data 生態</h3>
+          <h3>Java／Spring Boot 後端開發</h3>
+          <p>建立 REST API 與後端服務，處理需求拆解、服務分層、資料存取及例外回應。</p>
           <div class="skill-tags">
-            <span>Spring Data JDBC</span><span>Spring Data JPA</span><span>Spring Data Redis</span><span>Spring Data MongoDB</span><span>Spring Data Elasticsearch</span><span>Spring Data R2DBC</span>
+            <span>Java</span><span>Spring Boot</span><span>REST API</span><span>Lombok</span><span>MyBatis</span><span>Spring Data</span>
           </div>
         </article>
         <article class="skill-card">
-          <h3>資料庫</h3>
+          <h3>資料庫整合與遷移</h3>
+          <p>具備資料寫入、查詢、欄位轉換與持久化經驗，曾將 StockPredictor 從 H2 遷移至 PostgreSQL 17。</p>
           <div class="skill-tags">
-            <span>MySQL</span><span>MariaDB</span><span>PostgreSQL（PGSQL）</span><span>Microsoft SQL Server</span><span>MongoDB</span><span>Redis</span><span>Elasticsearch</span>
+            <span>PostgreSQL</span><span>MySQL</span><span>MariaDB</span><span>MongoDB</span><span>Redis</span><span>Flyway</span><span>HikariCP</span><span>Testcontainers</span>
+          </div>
+        </article>
+        <article class="skill-card">
+          <h3>Docker 與開發流程</h3>
+          <p>建立應用程式與資料庫容器環境，使用版本控制與自動化流程管理程式及驗證結果。</p>
+          <div class="skill-tags">
+            <span>Docker</span><span>Docker Compose</span><span>Git</span><span>GitHub Actions</span><span>CI/CD</span><span>Linux</span>
+          </div>
+        </article>
+        <article class="skill-card">
+          <h3>外部 API 串接與資料整合</h3>
+          <p>處理不同 API 的欄位、日期、空值及錯誤格式，並設計 fallback、背景回補與可理解的錯誤回應。</p>
+          <div class="skill-tags">
+            <span>FinMind</span><span>TWSE／TPEx</span><span>Yahoo Finance</span><span>Alpha Vantage</span><span>FMP</span><span>MOPS</span>
           </div>
         </article>
         <article class="skill-card">
           <h3>AWS 雲端服務</h3>
+          <p>了解以 EC2 建立 Linux／Windows 執行環境、S3 物件儲存與 RDS 託管資料庫，能配合 Java、Spring Boot、Docker 與資料庫規劃雲端環境。</p>
           <div class="skill-tags">
-            <span>AWS EC2（Linux）</span><span>AWS S3</span><span>AWS RDS（MySQL／PostgreSQL／SQL Server）</span><span>AWS Marketplace</span><span>AWS Comprehend</span>
-          </div>
-        </article>
-        <article class="skill-card">
-          <h3>作業系統</h3>
-          <div class="skill-tags">
-            <span>Ubuntu／Linux 指令</span><span>Windows</span>
-          </div>
-        </article>
-        <article class="skill-card">
-          <h3>AI 工具與本機模型</h3>
-          <div class="skill-tags">
-            <span>Spring AI</span><span>Claude</span><span>Codex</span><span>Gemini</span><span>DeepSeek</span><span>MIMO</span><span>Google AI Edge</span><span>LM Studio</span><span>Ollama</span>
-          </div>
-        </article>
-        <article class="skill-card skill-card-wide">
-          <h3>DevOps 與版本控制</h3>
-          <div class="skill-tags">
-            <span>Docker（容器化）</span><span>Git</span><span>CI/CD</span>
+            <span>AWS EC2</span><span>AWS S3</span><span>AWS RDS</span><span>AWS Marketplace</span><span>AWS Comprehend</span><span>Cloud Deployment</span>
           </div>
         </article>
       </div>
@@ -154,18 +151,41 @@
       </div>
     </section>
 
-    <section class="section split" id="background">
-      <div>
-        <h2>學歷</h2>
-        <p><strong>真理大學</strong><br>財經法律學系，2010 年畢業</p>
+    <section class="section" id="autobiography">
+      <h2>自傳 / Autobiography</h2>
+      <div class="summary-block autobiography-copy">
+        <p>過去我主要從事服務業，累積了與人溝通、理解需求及處理現場問題的經驗。為了突破原有職涯與薪資發展限制，我開始學習 AI 與後端工程，並從財經法律背景跨入軟體開發。服務業讓我習慣站在使用者角度思考；程式開發則讓我找到把需求轉化為實際產品的方法。目前希望投入 AI 應用、生成式 AI／RAG 系統整合或 Java 後端相關工作。</p>
+        <p>學習期間，我獨立完成 Stock AI System 與 NewIdeaCase 畢業專案，整合 Java、Spring Boot、資料庫、外部 API、Docker 與 RAG。課程結束後，我持續開發 StockPredictor，串接 FinMind、TWSE／TPEx、Yahoo Finance 等資料來源。開發中最讓我印象深刻的是，系統原本設計了兩週回測功能，但每次重新啟動後，H2 內的歷史資料無法延續，導致我一直看不出策略效果。我花了許多時間檢查資料寫入、查詢及回測流程，最後將主要資料庫遷移至 PostgreSQL 17，並加入 Flyway、HikariCP 與 Testcontainers。這次經驗讓我理解，功能可以執行不代表系統真正可靠，資料是否能保存及結果是否能重現同樣重要。</p>
+        <p>我也從零開發 Secure Messenger，完成兩台 Android 模擬器間的加密訊息傳送，並將原本需要手動按鍵的同步流程改為依待機時間自動同步。開發時主要使用 Codex，搭配 DeepSeek 協助驗證與除錯；我會閱讀程式、日誌與 AI 的分析流程，再自行確認結果。我希望結合服務業的使用者思維、AI 協作及後端實作能力，成為能獨立完成產品原型並持續改善系統的 AI 應用工程師。</p>
       </div>
-      <div>
-        <h2>語言</h2>
-        <p>語文能力：中文、英文</p>
+      <details class="language-panel">
+        <summary>English Version</summary>
+        <div class="summary-block english-copy" lang="en">
+          <p>I previously worked primarily in the service industry, where I developed strong communication skills and learned how to understand customer needs and resolve problems in real-world situations. Seeking greater career growth, I began studying AI and backend engineering and transitioned from a background in financial and economic law into software development. My service experience taught me to think from the user’s perspective, while programming gave me a way to turn those needs into working products. I am currently seeking opportunities in AI application development, generative AI and RAG integration, or Java backend engineering.</p>
+          <p>During my training, I independently completed Stock AI System and NewIdeaCase, integrating Java, Spring Boot, databases, external APIs, Docker, and RAG. After the course, I continued developing StockPredictor and connected it to data sources such as FinMind, TWSE/TPEx, and Yahoo Finance.</p>
+          <p>One memorable challenge involved a two-week backtesting feature. Because the system initially used H2, historical data did not persist properly after restarting the application, making it difficult to evaluate the strategy. I spent considerable time examining the data-writing, querying, and backtesting processes. I eventually migrated the primary database to PostgreSQL 17 and introduced Flyway, HikariCP, and Testcontainers. This experience taught me that a feature that runs is not necessarily reliable—data persistence and reproducible results are equally important.</p>
+          <p>I also built Secure Messenger from scratch, successfully sending encrypted messages between two Android emulators and improving the original manual synchronization process by introducing automatic synchronization based on idle time.</p>
+          <p>I primarily use Codex for development and DeepSeek for additional verification and debugging. Instead of accepting AI-generated answers without question, I examine the code, logs, and reasoning process before validating the results myself. My goal is to combine the user-focused mindset I developed in the service industry with AI-assisted development and backend engineering skills, becoming an AI application engineer capable of independently building and continuously improving product prototypes.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="section" id="background">
+      <h2>學歷與語言 / Education &amp; Languages</h2>
+      <div class="background-grid">
+        <article class="background-card">
+          <h3>學歷</h3>
+          <p><strong>真理大學</strong><br>財經法律學系，大學畢業<br><span class="meta">2006/9–2010/7</span></p>
+        </article>
+        <article class="background-card">
+          <h3>語言能力</h3>
+          <p><strong>中文：</strong>母語</p>
+          <p><strong>英文：</strong>技術文件閱讀與開發工具操作</p>
+        </article>
       </div>
     </section>
   </main>
   <button class="back-to-top" type="button" aria-label="回到頁首">↑</button>
-  <script src="script.js?v=github-properties-20260731" defer></script>
+  <script src="script.js?v=resume-pdf-20260731" defer></script>
 </body>
 </html>
